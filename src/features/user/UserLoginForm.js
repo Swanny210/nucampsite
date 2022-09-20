@@ -7,7 +7,7 @@ import defaultAvatar from '../../app/assets/img/unicorn.png';
 import { validateUserLoginForm } from '../../utils/validateUserLoginForm.js';
 
  const UserLoginForm = () => {
-   const [loginModalOpen, setLoginModalOpen] = useState("false");
+   const [loginModalOpen, setLoginModalOpen] = useState(false);
 
    const currentUser = useSelector(selectCurrentUser);
 
