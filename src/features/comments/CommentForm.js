@@ -2,12 +2,12 @@ import {useState} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, FormGroup, Label } from 'reactstrap';
 import {Formik, Field, Form, ErrorMessage } from 'formik';
 import { validateCommentForm } from '../../utils/validateCommentForm';
-import { addComment } from './commentsSlice';
+import { postComment } from './commentsSlice';
 import { useDispatch } from 'react-redux';
 
 
     const CommentForm = ({campsiteId}) => {
-        const [modalOpen, setModalOpen] = useState("false");
+        const [modalOpen, setModalOpen] = useState(false);
         const dispatch = useDispatch();
         const handleSubmit = (values) => {
             const comment = {
@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux';
 
             
             console.log(comment);
-            dispatch(addComment(comment));
+            dispatch(postComment(comment));
             setModalOpen(false);
         };
     
@@ -44,7 +44,7 @@ import { useDispatch } from 'react-redux';
                         author:'',
                         commentText:'',
                     }}
-                        onSubmit={() => handleSubmit()}
+                        onSubmit= {handleSubmit}
                         validate={validateCommentForm}
                         >
                         
